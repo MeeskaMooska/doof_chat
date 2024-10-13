@@ -4,6 +4,8 @@ const { env } = require("process");
 async function handler(event) {
     const prompt = event.queryStringParameters?.prompt || 'default prompt'; // Retrieve the prompt from the request, or set a default.
 
+    console.log(`http://${env.MODEL_API_URL}/process_request?message=${encodeURIComponent(prompt)}`)
+
     // Send prompt to the server via GET request with query parameters
     const response = await fetch(`http://${env.MODEL_API_URL}/process_request?message=${encodeURIComponent(prompt)}`, {
         method: 'GET',
