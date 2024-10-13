@@ -21,9 +21,9 @@ export default function ChatbotInterface() {
 
   async function promptModel(prompt: string): Promise<string> {
     try {
-      const response = await axios.get('/.netlify/functions/promptModel', {
+      const response = await axios.get('http://24.199.66.183:8080/process_request', {
         params: {
-          prompt: prompt
+          message: prompt
         }
       }
       );
